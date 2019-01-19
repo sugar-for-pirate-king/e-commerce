@@ -58,7 +58,6 @@ RSpec.feature "User register", type: :feature do
           click_button 'Save user boi'
         }.to change{ User.count }.by(0)
       end
-
     end
 
     context "fill passoword and password_confirmation but does't match" do
