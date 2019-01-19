@@ -13,6 +13,15 @@ RSpec.describe User, type: :model do
     expect(user.errors[:username]).to include("can't be blank")
   end
 
+  it 'is invalid with username has been taken' do
+    old_user = create(:user, username: 'fauzan')
+    new_user = build(:user, username: 'fauzan')
+
+    new_user.valid?
+
+    expect(new_user.errors[:username]).to include('has already been taken')
+  end
+
   it 'is invalid without password' do
     user = build(:user, password: nil)
     user.valid?
