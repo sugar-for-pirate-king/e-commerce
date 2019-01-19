@@ -1,0 +1,22 @@
+<h1>User register</h1>
+
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
+<%= form_with model: @user, url: users_path, method: :post, local: true do |f| %>
+  <p>
+    <%= f.text_field :username %>
+  </p>
+  <p>
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <p>
+    User
+  </p>
+
+  <%= f.submit 'Save user boii' %>
+<% end %>
